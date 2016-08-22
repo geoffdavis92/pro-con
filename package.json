@@ -1,0 +1,35 @@
+{
+  "name": "procon",
+  "version": "0.0.0",
+  "description": "Pros/Cons app",
+  "main": "index.html",
+  "scripts": {
+    "build": "grunt build",
+    "clean": "rm -r .sass-cache; rm -r dev",
+    "serve": "cd dev && php -S localhost:14441; cd -;",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "pro",
+    "con",
+    "comparison",
+    "react"
+  ],
+  "author": "geoffdavis92",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-preset-es2015": "^6.13.2",
+    "babel-preset-react": "^6.11.1",
+    "grunt": "^1.0.1",
+    "grunt-babel": "^6.0.0",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-uglify": "^2.0.0",
+    "grunt-contrib-watch": "^1.0.0"
+  },
+  "dependencies": {
+    "ajax.js": "0.0.8",
+    "react": "^15.3.1",
+    "react-dom": "^15.3.1"
+  }
+}
