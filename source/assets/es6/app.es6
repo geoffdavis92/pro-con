@@ -102,7 +102,13 @@ const List = React.createClass({
 				)
 			});
 		} else {
-			entryRows = false;
+			entryRows = ['No Entries Yet!'].map(function(el,i) {
+				return (
+					<tr key={i}>
+						<td colSpan="4" className="text-center">{el}</td>
+					</tr>
+				)
+			})
 		}
 		return (
 			<table>
@@ -113,7 +119,7 @@ const List = React.createClass({
 					<th className="bb3 border-accent">value</th>
 					<th className="bb3 border-accent">description</th>
 				</tr>
-				{entryRows ? entryRows : null}
+				{entryRows}
 				</tbody>
 			</table>
 		)
@@ -151,7 +157,7 @@ const App = React.createClass({
 	render() {
 		return (
 			<main id="app" className="row gutters">
-				<div className="column">
+				<div className="max-w33">
 					<h4>Add new entry:</h4>
 					<Form onFormSubmit={this.handleFormSubmit} />
 				</div>
