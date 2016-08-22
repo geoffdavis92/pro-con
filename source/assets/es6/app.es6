@@ -26,7 +26,6 @@ const Form = React.createClass({
 		e.preventDefault();
 		let parsedData = scrapeForm('form'),
 			entry;
-		// console.log({parsedData:parsedData})
 		if ( parsedData[1].value && !parsedData[2].value ) {
 			// is Pro
 			entry = new Pro(parsedData[0].value,parsedData[3].value,parsedData[4].value)
@@ -34,12 +33,14 @@ const Form = React.createClass({
 			// is Con
 			entry = new Con(parsedData[0].value,parsedData[3].value,parsedData[4].value)
 		}
-		document.querySelector('form').reset();
+		
 		this.props.onFormSubmit(entry);
+		
+		document.querySelector('form').reset();
 	},
 	render() {
 		return (
-			<form className="form" onSubmit={this.handleSubmit}>
+			<form className="form" method="POST" onSubmit={this.handleSubmit}>
 				<div className="input-wrap">
 					<label className="label" htmlFor="title">Title</label>
 					<input className="input" type="text" name="title" id="title" required/>
@@ -145,11 +146,7 @@ const App = React.createClass({
 		});
 		this.setState({ data: updatedStateData });
 		// POST data to JSON
-		// getData('get.php',{file:'entries','method':'POST'},)
-		console.log(JSON.stringify(updatedStateData))
-		postData('post.php', JSON.stringify(updatedStateData), function(data) {
-			console.log(data)
-		})
+		postData('get.php',{file:'entries.json',method:'POST',data:JSON.stringify(updatedStateData)}, data => console.log(data))
 	},
 	render() {
 		return (

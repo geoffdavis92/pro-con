@@ -4,6 +4,7 @@
   "description": "Pros/Cons app",
   "main": "index.html",
   "scripts": {
+    "copy:data": "cp -r dev/assets/data source/assets/",
     "build": "grunt build",
     "clean": "rm -r .sass-cache; rm -r dev",
     "serve": "cd dev && php -S localhost:14441; cd -;",

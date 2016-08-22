@@ -50,19 +50,16 @@ const getData = function(endpoint,params={},callback) {
 	});
 }
 
-const postData = function(endpoint,data,params={},callback= () => false) {
-	if ( typeof params == 'function' ) {
-		return AJAX.post(endpoint,data,function(data) {
-			params(data)
-		});
-	} else {
-		endpoint += '?';
-		for (let key in params) {
-			endpoint += `${key}=${params[key]}&`
-		}
-		endpoint = endpoint.replace(/\&$/g,'');
-		return AJAX.post(endpoint,data,function(data) {
-			callback(data);
-		});
+const postData = function(endpoint,params,callback= () => false) {
+	// return AJAX.post(endpoint,data,function(data) {
+	// 	callback(data)
+	// });
+	endpoint += '?';
+	for (let key in params) {
+		endpoint += `${key}=${params[key]}&`
 	}
+	endpoint = endpoint.replace(/\&$/g,'');
+	return AJAX.get(endpoint,null,function(data) {
+		callback(data);
+	});
 }

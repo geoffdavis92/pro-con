@@ -1,9 +1,1 @@
-[
-	{
-		"title": "Is good",
-		"alignment": "PRO",
-		"value": 1,
-		"description": "It is a good thing.",
-		"isDeleted": false
-	}
-]
+[{"title":"Is good","alignment":"PRO","value":1,"description":"It is a good thing.","isDeleted":false},{"title":"France","alignment":"CON","value":"1","description":"It's really bad.","isDeleted":false}]
